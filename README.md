@@ -27,12 +27,13 @@ Example segmentation predictions from the fine-tuned model (image, ground-truth 
 </p>
 
 
-## Requirements
+### Requirements
 To install requirements, run the command:
 
     pip install -r requirements.txt
 
-## Self-Supervised Pre-Training with SimMIM on ImageNet-1K
+## Running the Code
+### Self-Supervised Pre-Training with SimMIM on ImageNet-1K
 
 1. Navigate to the project's `/data/` folder and download ImageNet-1K by either running these commands below in a bash command line, or manually using the links to these 3 files ([devkit](https://image-net.org/data/ILSVRC/2012/ILSVRC2012_devkit_t12.tar.gz), [validation](https://image-net.org/data/ILSVRC/2012/ILSVRC2012_img_val.tar), [train](https://image-net.org/data/ILSVRC/2012/ILSVRC2012_img_train.tar)):
    
@@ -50,7 +51,7 @@ To install requirements, run the command:
 
    This will first extract the compressed ImageNet files, then start printing training statistics and save the model weights as a `.pth` file every epoch. Use the flag `--run_plots` to save reconstructions during training, and the `--val_set` flag to use the smaller (validation) set only, for quicker testing. Change the train size between 45k, 100k and 200k to reproduce results from our report.
    
-## Fine-Tuning on Oxford-IIIT Pets
+### Fine-Tuning on Oxford-IIIT Pets
 1. With the pre-trained encoder weights in the `/weights/` folder, run this command for fine-tuning, which will download the Oxford-IIIT Pets dataset and start training initialised with the weights given:
 
         python main_finetune.py \
@@ -68,7 +69,7 @@ To install requirements, run the command:
             --train_size 6000 \
             --test_size 1000 \
 
-## Intermediate-Task Fine-Tuning on Intel Image Classification Dataset
+### Intermediate-Task Fine-Tuning on Intel Image Classification Dataset
 1. First, the Intel Image Classification dataset needs to be downloaded. From the project's root directory, run:
         
         cd data
@@ -83,7 +84,7 @@ To install requirements, run the command:
             --weights weights/encoder_vit_4M_pretrain_200K.pth \
             --int_finetune
 
-## Evaluation
+### Evaluation
 To plot reconstructions from pre-trained models on ImageNet validation set (download above):
 
         python evaluation.py \

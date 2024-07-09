@@ -83,23 +83,6 @@ def get_dict(**kwargs):
     """Return a dictionary from keyword arguments."""
     return kwargs
 
-# class ToDevice(torch.nn.Module):
-#     """
-#     Sends the input object to the device specified in the
-#     object's constructor by calling .to(device) on the object.
-#     """
-#     def __init__(self, device):
-#         super().__init__()
-#         self.device = device
-
-#     def forward(self, img):
-#         """Send the input object to the device."""
-#         return img.to(self.device)
-
-#     def __repr__(self) -> str:
-#         return f"{self.__class__.__name__}(device={self.device})"
-
-
 def save_reconstructions(pred_patches: torch.Tensor, 
                          mask_patches: torch.Tensor, 
                          org_patches: torch.Tensor, 
